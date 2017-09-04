@@ -4,6 +4,7 @@
 //
 //  Created by Jarrod Parkes on 11/5/15.
 //  Copyright © 2015 Udacity. All rights reserved.
+//  Modified by Nicholas Sutanto
 //
 
 import UIKit
@@ -41,7 +42,7 @@ struct Constants {
     // MARK: Flickr Parameter Values
     struct FlickrParameterValues {
         static let SearchMethod = "flickr.photos.search"
-        static let APIKey = "YOUR_API_KEY_HERE"
+        static let APIKey = "5f28ba23fe1972a6597e663e5606db75"
         static let ResponseFormat = "json"
         static let DisableJSONCallback = "1" /* 1 means "yes" */
         static let GalleryPhotosMethod = "flickr.galleries.getPhotos"
