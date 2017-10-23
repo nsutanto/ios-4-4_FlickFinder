@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     // MARK: Properties
     
-    var keyboardOnScreen = false
+    @objc var keyboardOnScreen = false
     
     // MARK: Outlets
     
@@ -320,33 +320,33 @@ extension ViewController: UITextFieldDelegate {
     
     // MARK: Show/Hide Keyboard
     
-    func keyboardWillShow(_ notification: Notification) {
+    @objc func keyboardWillShow(_ notification: Notification) {
         if !keyboardOnScreen {
             view.frame.origin.y -= keyboardHeight(notification)
         }
     }
     
-    func keyboardWillHide(_ notification: Notification) {
+    @objc func keyboardWillHide(_ notification: Notification) {
         if keyboardOnScreen {
             view.frame.origin.y += keyboardHeight(notification)
         }
     }
     
-    func keyboardDidShow(_ notification: Notification) {
+    @objc func keyboardDidShow(_ notification: Notification) {
         keyboardOnScreen = true
     }
     
-    func keyboardDidHide(_ notification: Notification) {
+    @objc func keyboardDidHide(_ notification: Notification) {
         keyboardOnScreen = false
     }
     
-    func keyboardHeight(_ notification: Notification) -> CGFloat {
+    @objc func keyboardHeight(_ notification: Notification) -> CGFloat {
         let userInfo = (notification as NSNotification).userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.cgRectValue.height
     }
     
-    func resignIfFirstResponder(_ textField: UITextField) {
+    @objc func resignIfFirstResponder(_ textField: UITextField) {
         if textField.isFirstResponder {
             textField.resignFirstResponder()
         }
@@ -368,7 +368,7 @@ extension ViewController: UITextFieldDelegate {
         }
     }
     
-    func isValueInRange(_ value: Double, min: Double, max: Double) -> Bool {
+    @objc func isValueInRange(_ value: Double, min: Double, max: Double) -> Bool {
         return !(value < min || value > max)
     }
 }
